@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Float</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #0c1a2a;
+      color: #e8d8b4;
+    }
+    header, main {
+      display: none;
+    }
+    header.visible, main.visible {
+      display: block;
+    }
+    #intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #0c1a2a;
+      color: #e8d8b4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+    }
+    #intro img {
+      width: 100px;
+      margin-bottom: 1rem;
+    }
+    #intro p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+    nav a {
+      margin-left: 1rem;
+      color: #e8d8b4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+    section {
+      display: none;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="intro" onclick="enterSite()">
+    <img src="icon_128x128_transparent_signature.png" alt="I Float logo" />
+    <p>Vajuta, et siseneda</p>
+  </div>
+
+  <header>
+    <img src="icon_128x128_transparent_signature.png" alt="I Float logo" />
+    <nav>
+      <a href="#" onclick="showSection('meist')">Meist</a>
+      <a href="#" onclick="showSection('teist')">Teist</a>
+      <a href="#" onclick="showSection('kontakt')">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="meist" class="active">
+      <h1>I Float, rändav vaikuse ruum.</h1>
+      <p>Me usume, et rahu ei pea olema paikne - ta saab tulla Sinuni.</p>
+      <p>See paik on ehitatud liikumise ja vaikuse vahele.</p>
+      <p>Ole teretulnud.</p>
+    </section>
+    <section id="teist">
+      <h1>Teist</h1>
+      <p>Otsime partnereid, kes soovivad testida seda kogemust poole hinnaga.</p>
+      <p>I Float sobib üritustele, festivalidele, agentuuridele, spaadele ja hingamispausiks.</p>
+      <p>Ütle, kuhu rahu võiks jõuda - ja me tuleme.</p>
+    </section>
+    <section id="kontakt">
+      <h1>Kontakt</h1>
+      <p>Kirjuta: <a href="mailto:hello@ifloat.ee" style="color:#e8d8b4">hello@ifloat.ee</a></p>
+      <p>Instagram: <a href="https://instagram.com/ifloat.elamus" target="_blank" style="color:#e8d8b4">@ifloat.elamus</a></p>
+    </section>
+  </main>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function enterSite() {
+      document.getElementById('intro').style.display = 'none';
+      document.querySelector('header').classList.add('visible');
+      document.querySelector('main').classList.add('visible');
+    }
+  </script>
+</body>
+</html>
